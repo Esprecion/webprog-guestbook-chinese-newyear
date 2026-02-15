@@ -13,7 +13,21 @@ export const createServer = async () => {
       new ExpressAdapter(server)
     );
     app.enableCors();
+    app.setGlobalPrefix('api'); // ← CRITICAL: add this line
     await app.init();
+
+    // Debug: print registered routes
+    const httpServer = app.getHttpServer();
+    const router = httpServer._events.request?._router;
+    if (router) {
+      console.log('Registered routes:');
+      router.stack.forEach((layer: any) => {
+        if (layer.route) {
+          console.log(`${Object.keys(layer.route.methods)} ${layer.route.path}`);
+        }
+      });
+    }
+
     cachedApp = app;
   }
   return server;
