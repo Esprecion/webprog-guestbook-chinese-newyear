@@ -5,7 +5,7 @@ import { GuestbookService } from './guestbook.service';
 
 @Module({
   imports: [ConfigModule.forRoot()],
-  controllers: [GuestbookController],
+  controllers: [GuestbookController], // Must be here!
   providers: [GuestbookService],
 })
 export class AppModule {}
