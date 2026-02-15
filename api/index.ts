@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from '../dist/app.module'; // ✅ import from dist after build
+import { AppModule } from '../backend/dist/app.module';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import express from 'express';
 
