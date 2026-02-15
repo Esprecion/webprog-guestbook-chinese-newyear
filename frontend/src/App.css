@@ -1,0 +1,480 @@
+/* Chinese New Year Theme */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #8b1e1e 0%, #c0392b 100%);
+  color: #333;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Chinese pattern overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M20,20 L30,10 L40,20 L50,10 L60,20 L70,10 L80,20 L70,30 L80,40 L70,50 L80,60 L70,70 L60,60 L50,70 L40,60 L30,70 L20,60 L10,70 L10,30 Z" fill="%23ffd700"/><circle cx="50" cy="50" r="8" fill="%23ffd700"/></svg>');
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Decorative lanterns */
+.app::before,
+.app::after {
+  content: "🏮";
+  position: fixed;
+  font-size: 3rem;
+  top: 20px;
+  opacity: 0.8;
+  animation: swing 3s ease-in-out infinite;
+  z-index: 2;
+}
+
+.app::before {
+  left: 20px;
+  transform-origin: top center;
+}
+
+.app::after {
+  right: 20px;
+  transform-origin: top center;
+  animation-delay: 1s;
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  75% { transform: rotate(-10deg); }
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: 3px solid #ffd700;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Chinese cloud pattern */
+.app-header::before {
+  content: "☁️☁️☁️";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  font-size: 2rem;
+  opacity: 0.2;
+  white-space: nowrap;
+  animation: clouds 20s linear infinite;
+}
+
+@keyframes clouds {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+.app-header h1 {
+  color: #8b1e1e;
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(255,215,0,0.5);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.app-header p {
+  color: #8b1e1e;
+  font-size: 1.2rem;
+  font-weight: 500;
+  background: rgba(255,255,255,0.3);
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+}
+
+.guestbook-form {
+  background: linear-gradient(135deg, #fff5e6 0%, #ffe4cc 100%);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  margin-bottom: 2rem;
+  border: 3px solid #ffd700;
+  position: relative;
+}
+
+/* Red envelope corner decoration */
+.guestbook-form::after {
+  content: "🧧";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 2rem;
+  opacity: 0.5;
+  transform: rotate(-15deg);
+}
+
+.guestbook-form h2 {
+  margin-bottom: 1.5rem;
+  color: #8b1e1e;
+  font-size: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.guestbook-form h2::before,
+.guestbook-form h2::after {
+  content: "🐉";
+  font-size: 1.8rem;
+  margin: 0 15px;
+  opacity: 0.8;
+  display: inline-block;
+}
+
+.guestbook-form h2::after {
+  content: "🐉";
+  transform: scaleX(-1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: white;
+  color: #333; /* FIXED: ensures typed text is dark and visible */
+  transition: all 0.3s ease;
+}
+
+/* Placeholder text styling */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
+  opacity: 1; /* Ensures placeholder is fully opaque */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #c0392b;
+  box-shadow: 0 0 15px rgba(255,215,0,0.5);
+  transform: translateY(-2px);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #c0392b 0%, #8b1e1e 100%);
+  color: #ffd700;
+  padding: 1rem 2.5rem;
+  border: 2px solid #ffd700;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255,215,0,0.4);
+  background: linear-gradient(135deg, #8b1e1e 0%, #c0392b 100%);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #ecf0f1;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.guestbook-entries {
+  background: linear-gradient(135deg, #fff5e6 0%, #ffe4cc 100%);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border: 3px solid #ffd700;
+  position: relative;
+}
+
+/* Firecracker decoration */
+.guestbook-entries::before {
+  content: "🧨🧨🧨";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+.guestbook-entries h2 {
+  margin-bottom: 1.5rem;
+  color: #8b1e1e;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.entries-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.entry-card {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+  border-radius: 15px;
+  border-left: 8px solid #ffd700;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gold coin decoration */
+.entry-card::after {
+  content: "🪙";
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 1.5rem;
+  opacity: 0.3;
+  transform: rotate(15deg);
+}
+
+.entry-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 25px rgba(255,215,0,0.3);
+  border-left-width: 12px;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px dashed #ffd700;
+}
+
+.entry-header strong {
+  font-size: 1.3rem;
+  color: #c0392b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.entry-header strong::before {
+  content: "🧧";
+  font-size: 1.2rem;
+}
+
+.entry-date {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  background: #f0f0f0;
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  border: 1px solid #ffd700;
+}
+
+.entry-message {
+  color: #2c3e50;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  padding: 0.5rem;
+  background: rgba(255,215,0,0.05);
+  border-radius: 8px;
+  font-size: 1.05rem;
+}
+
+.entry-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+}
+
+.btn-edit,
+.btn-delete {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-edit::before {
+  content: "✏️";
+  font-size: 1rem;
+}
+
+.btn-delete::before {
+  content: "🗑️";
+  font-size: 1rem;
+}
+
+.btn-edit {
+  background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+  color: #8b1e1e;
+  border: 2px solid #ffd700;
+}
+
+.btn-delete {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  border: 2px solid #ffd700;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-edit:hover {
+  background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%);
+}
+
+.btn-delete:hover {
+  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+}
+
+/* Loading state */
+.guestbook-entries p {
+  text-align: center;
+  color: #8b1e1e;
+  font-size: 1.2rem;
+  padding: 2rem;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50px;
+  border: 2px dashed #ffd700;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app {
+    padding: 1rem;
+  }
+  
+  .app-header h1 {
+    font-size: 2rem;
+  }
+  
+  .app-header p {
+    font-size: 1rem;
+  }
+  
+  .guestbook-form h2::before,
+  .guestbook-form h2::after {
+    display: none;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+  
+  .entry-actions {
+    flex-direction: column;
+  }
+  
+  .btn-edit,
+  .btn-delete {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .app::before,
+  .app::after {
+    font-size: 2rem;
+  }
+}
+
+/* Firework animation for celebration */
+@keyframes firework {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+}
+
+.app::after {
+  animation: firework 2s ease-out infinite;
+}
+
+/* Add some floating coins animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+.entry-card:nth-child(odd)::after {
+  animation: float 4s ease-in-out infinite;
+}
+
+.entry-card:nth-child(even)::after {
+  animation: float 5s ease-in-out infinite reverse;
+}
